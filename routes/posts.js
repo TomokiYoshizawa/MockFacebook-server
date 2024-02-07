@@ -13,5 +13,18 @@ router.post("/", async (req, res) => {
 });
 
 //edit a post
+router.put("/:id", async (req, res) => {
+  try {
+    const post = await Post.findById(req.params.id);
+    if (post.userId === req.body.userId) {
+      await post.updateOne({ $set: req.body });
+      return res.status(200).json("You have edited your post");
+    } else {
+      return res.status(403).json("This is not your post");
+    }
+  } catch (err) {
+    return res.status(403).json(err);
+  }
+});
 
 module.exports = router;
