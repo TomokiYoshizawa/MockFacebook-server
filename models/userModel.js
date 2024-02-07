@@ -33,6 +33,10 @@ const userSchema = new mongoose.Schema(
       type: Array,
       default: [],
     },
+    followings: {
+      type: Array,
+      default: [],
+    },
     isAdming: {
       type: Boolean,
       default: false,
@@ -49,4 +53,4 @@ const userSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model("User", userSchema);
+module.exports = mongoose.model("User", userSchema, "user");

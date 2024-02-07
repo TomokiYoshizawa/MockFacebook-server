@@ -19,6 +19,8 @@ mongoose
     console.log("Error: ", err);
   });
 
+//middleware
+app.use(express.json());
 app.use("/users", userRouter);
 app.use("/auth", authRouter);
 app.use("/posts", postRouter);
@@ -28,5 +30,5 @@ app.get("/", (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log("Server is running....");
+  console.log(`Server is running at ${process.env.PORT}`);
 });
