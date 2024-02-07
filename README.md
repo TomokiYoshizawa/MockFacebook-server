@@ -6,4 +6,4 @@ A brief description of what this project does and who it's for.
 
 ## Installation
 
-npm installnpm run dev
+npm instal lnpm run dev
