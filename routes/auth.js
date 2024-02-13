@@ -3,17 +3,19 @@ const User = require("../models/userModel");
 
 //register user
 router.post("/register", async (req, res) => {
+  //create a new user
   try {
     const newUser = await new User({
       username: req.body.username,
       email: req.body.email,
       password: req.body.password,
     });
-
+    //save the user
     const user = await newUser.save();
     return res.status(200).json(user);
   } catch (err) {
-    return res.status(500).json(err);
+    console.error(err);
+    return res.status(500).json({ message: "Internal Server Error" });
   }
 });
 
